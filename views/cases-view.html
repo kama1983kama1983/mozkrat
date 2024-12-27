@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cases</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">All Cases</h1>
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Mod3</th>
+                    <th>Mod3le</th>
+                    <th>Date of Session</th>
+                    <th>Tawkel</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .}}
+                <tr>
+                    <td>{{.Mod3}}</td>
+                    <td>{{.Mod3le}}</td>
+                    <td>{{.DateOfSession}}</td>
+                    <td>{{.Tawkel}}</td>
+                    <td>
+                        <a href="/cases/edit?id={{.ID}}" class="button is-small">Edit</a>
+                        <a href="/cases/delete?id={{.ID}}" class="button is-small is-danger">Delete</a>
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

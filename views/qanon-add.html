@@ -1,0 +1,40 @@
+{{define "qanon-add"}}
+{{template "base" .}}
+{{block "content" .}}
+    <h1>إضافة قانون جديدة</h1>
+    <form id="AddQanon">
+        <label for="title">العنوان:</label>
+        <input type="text" name="title" required>
+        <br>
+        <label for="date_of_publish">تاريخ النشر:</label>
+        <input type="date" name="date_of_publish" required>
+        <br>
+        <label for="moad_id">معرف الملاحظات:</label>
+        <input type="number" name="moad_id" required>
+        <br>
+        <input type="submit" value="إضافة">
+    </form>
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('AddQanon').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // Create a new FormData object
+            const formData = new FormData(this);
+            // Create a new XMLHttpRequest object
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', "/AddQanon", true);
+            // Set up a function to handle the response
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById('response').innerHTML = '<p>' + xhr.responseText + '</p>'; // Display the response
+                } else {
+                    document.getElementById('response').innerHTML = '<p>Error: ' + xhr.statusText + '</p>'; // Display error
+                }
+            };
+            // Send the request with the form data
+            xhr.send(formData);
+        });
+    </script>
+{{end}}
+{{end}}

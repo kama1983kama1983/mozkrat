@@ -1,0 +1,91 @@
+{{define "da3ormoz-add"}}
+{{template "base" .}}
+{{block "content" .}}
+    <div class="container">
+        <h1 class="title">أضافة الدعاوى والمذكرات القانونية</h1>
+        <form id="myForm">
+            <div class="field">
+                <label class="label" for="Title">عنوان الدعوى او المذكرة :</label>
+                <div class="control">
+                    <input class="input" type="text" id="title" name="title" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="typeof">نوع الدعوى او المذكرة :</label>
+                <div class="control">
+                    <div class="select">
+                        <select id="typeof" name="typeof" required>
+                            <option value="da3we">دعاوى</option>
+                            <option value="mozkrat">مذكرات</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="cases">قضايا :</label>
+                {{if eq .data  }}
+                <div class="control">
+                    <div class="select">
+                        <select name="caseid" id="caseid">
+                            {{range .Cases }}
+                                <option value="{{.Id}}">{{.mod3}} X {{.mod3le}}</option>
+                            {{end}}
+                        </select>
+                    </div>
+                </div>
+                {{else}}
+                <span>لا توجد قضايا أدخل قضايا <a href="">اضافة القضايا</a></span>
+                {{end}}
+            </div>
+            <div class="field">
+                <label class="label" for="details">تفاصيل :</label>
+                <div class="control">
+                    <input class="input" type="text" id="editor" name="details" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="notes">ملحوظات :</label>
+                <div class="control">
+                    <input class="input" type="text" id="notes" name="notes" required>
+                </div>
+            </div>
+            <button type="submit" class="button is-link">اضافة البيانات</button>
+        </form>
+        <div id="response"></div>
+    </div>
+    <script src="/assets/quill.js"></script>
+    <script>
+        // Initialize Quill editor
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, false] }],
+                    ['bold', 'italic', 'underline'],
+                    ['image', 'code-block'],
+                    ['clean'] // remove formatting button
+                ]
+            }
+        });
+        // Handle form submission
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // Create a new FormData object
+            const formData = new FormData(this);
+            // Create a new XMLHttpRequest object
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/submit', true);
+            // Set up a function to handle the response
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById('response').innerHTML = '<p>' + xhr.responseText + '</p>'; // Display the response
+                } else {
+                    document.getElementById('response').innerHTML = '<p>Error: ' + xhr.statusText + '</p>'; // Display error
+                }
+            };
+            // Send the request with the form data
+            xhr.send(formData);
+        });
+    </script>
+{{end}}
+{{end}}

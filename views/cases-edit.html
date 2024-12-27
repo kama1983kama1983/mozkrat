@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Case</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Edit Case</h1>
+        <form action="/cases/edit/submit" method="POST">
+            <input type="hidden" name="id" value="{{.ID}}">
+            <div class="field">
+                <label class="label">Mod3</label>
+                <div class="control">
+                    <input class="input" type="text" name="mod3" value="{{.Mod3}}" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Mod3le</label>
+                <div class="control">
+                    <input class="input" type="text" name="mod3le" value="{{.Mod3le}}" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Date of Session</label>
+                <div class="control">
+                    <input class="input" type="date" name="date_of_session" value="{{.DateOfSession}}" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Tawkel</label>
+                <div class="control">
+                    <input class="input" type="text" name="tawkel" value="{{.Tawkel}}" required>
+                </div>
+            </div>
+            <div class="control">
+                <button class="button is-link" type="submit">Update Case</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

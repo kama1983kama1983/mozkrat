@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Al3aqod</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Edit Al3aqod</h1>
+        <form action="/al3aqod/edit/submit" method="POST">
+            <input type="hidden" name="id" value="{{.ID}}">
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                    <input class="input" type="text" name="title" value="{{.Title}}" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Details</label>
+                <div class="control">
+                    <textarea class="textarea" name="details" required>{{.Details}}</textarea>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Type of</label>
+                <div class="control">
+                    <input class="input" type="text" name="Typeof" value="{{.Typeof}}" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Case ID</label>
+                <div class="control">
+                    <input class="input" type="text" name="caseid" value="{{.CaseID}}" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Notes</label>
+                <div class="control">
+                    <textarea class="textarea" name="notes">{{.Notes}}</textarea>
+                </div>
+            </div>
+            <div class="control">
+                <button class="button is-link" type="submit">Update Al3aqod</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

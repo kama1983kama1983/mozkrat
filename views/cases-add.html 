@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/assets/style.css" rel="stylesheet" />
+    <title>Add Case</title>
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center h-screen">
+    <form action="/cases/add/submit" method="post" class="bg-gray-800 p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Add New Case</h2>
+        <input type="text" name="mod3" placeholder="Mod3" class="w-full p-2 mb-4 bg-gray-700 text-gray-200 rounded" required />
+        <input type="text" name="mod3le" placeholder="Mod3le" class="w-full p-2 mb-4 bg-gray-700 text-gray-200 rounded" required />
+        <input type="date" name="date_of_session" class="w-full p-2 mb-4 bg-gray-700 text-gray-200 rounded" required />
+        <input type="text" name="tawkel" placeholder="Tawkel" class="w-full p-2 mb-4 bg-gray-700 text-gray-200 rounded" required />
+        <button type="submit" class="w-full bg-teal-500 p-2 rounded text-white">Add Case</button>
+    </form>
+</body>
+</html>

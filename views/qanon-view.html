@@ -1,0 +1,26 @@
+{{define "qanon-view"}}
+{{template "base" .}}
+{{block "content" .}}
+    <h1>قائمة QAnon</h1>
+    <a href="/AddQanon">إضافة QAnon جديدة</a>
+    <table>
+        <tr>
+            <th>العنوان</th>
+            <th>تاريخ النشر</th>
+            <th>معرف الملاحظات</th>
+            <th>الإجراءات</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.title}}</td>
+            <td>{{.date_of_publish}}</td>
+            <td>{{.moad_id}}</td>
+            <td>
+                <a href="/EditQanon?id={{.id}}">تعديل</a>
+                <a href="/DeleteQanon?id={{.id}}">حذف</a>
+            </td>
+        </tr>
+        {{end}}
+    </table>
+{{end}}
+{{end}}

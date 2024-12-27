@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Case</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Add New Case</h1>
+        <form action="/cases/add/submit" method="POST">
+            <div class="field">
+                <label class="label">Mod3</label>
+                <div class="control">
+                    <input class="input" type="text" name="mod3" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Mod3le</label>
+                <div class="control">
+                    <input class="input" type="text" name="mod3le" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Date of Session</label>
+                <div class="control">
+                    <input class="input" type="date" name="date_of_session" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Tawkel</label>
+                <div class="control">
+                    <input class="input" type="text" name="tawkel" required>
+                </div>
+            </div>
+            <div class="control">
+                <button class="button is-link" type="submit">Add Case</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
